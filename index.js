@@ -23,8 +23,16 @@ app.post('/users', (req, res) => {
 app.put('/users/:id', (req, res) => {
   const userId = req.params.id;
   const updatedUser = req.body;
-  users[userId] = updatedUser;
-  res.json(updatedUser);
+
+  // Verificar si el usuario con el ID proporcionado existe en el array users
+  if (users[userId]) {
+    // Si existe, actualizar los datos del usuario
+    users[userId] = updatedUser;
+    res.json(updatedUser); // Enviar una respuesta JSON con los datos actualizados del usuario
+  } else {
+    // Si no existe, enviar un mensaje de error
+    res.status(404).json({ error: 'El usuario no existe' });
+  }
 });
 
 // Iniciar el servidor
