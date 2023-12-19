@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
+
+// Middleware para habilitar CORS
+app.use(cors());
+
 // Middleware para parsear el body de las peticiones
 app.use(express.json());
 
