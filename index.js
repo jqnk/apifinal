@@ -30,7 +30,7 @@ app.put('/users/:id', (req, res) => {
     users[userId] = updatedUser;
     res.json(updatedUser); // Enviar una respuesta JSON con los datos actualizados del usuario
   } else {
-    // Si no existe, enviar un mensaje de error
+    // Si no existe, enviar un mensaje de error 404
     res.status(404).json({ error: 'El usuario no existe' });
   }
 });
